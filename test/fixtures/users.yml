@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  email: MyText
+  skills: MyText
+  learning: MyText
+  localtime: 2017-06-10 14:32:42
+  bio: MyText
+  image: MyText
+  location: MyText
+  longitude: MyText
+  latitude: 
+
+two:
+  name: MyText
+  email: MyText
+  skills: MyText
+  learning: MyText
+  localtime: 2017-06-10 14:32:42
+  bio: MyText
+  image: MyText
+  location: MyText
+  longitude: MyText
+  latitude: 

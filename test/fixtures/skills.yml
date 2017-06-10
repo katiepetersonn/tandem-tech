@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  skill: MyText
+  booking_id: 1
+
+two:
+  skill: MyText
+  booking_id: 1

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2017-06-10 14:46:41
+  end_time: 2017-06-10 14:46:41
+  teacher_id: 1
+  student_id: 1
+  available: false
+
+two:
+  start_time: 2017-06-10 14:46:41
+  end_time: 2017-06-10 14:46:41
+  teacher_id: 1
+  student_id: 1
+  available: false
