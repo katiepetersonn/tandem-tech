@@ -11,9 +11,9 @@
   Posted on: <%= comment.created_at.strftime("%B %d, %Y at %I:%M %P") %>
 </p>
 <p>
-  <% if @current_user && @current_user.id == @comment.user_id  %>
-    <%= link_to 'Delete Comment', [comment.item, comment],
+  <!-- <% if @current_user && @current_user.id == @comment.user_id  %>
+    <%= link_to 'Delete Comment', [comment.user, comment],
                  method: :delete,
                  data: { confirm: 'Are you sure?' } %>
-  <% end %>
+  <% end %> -->
 </p>
