@@ -1,2 +1,51 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+
+      <h1>Edit Profile</h1>
+      <% unless @user.errors.full_messages.empty? %>
+        <% @user.errors.full_messages.each do |msg| %>
+          <p>
+              <%= msg %>
+          </p>
+        <% end %>
+      <% end %>
+
+      <div>
+        <%= form_for(@user, :html => { :multipart => true }) do |f| %>
+        <p>
+            <%= f.label :name %>
+            <br>
+            <%= f.text_field :name, required: false %>
+        </p>
+
+        <p>
+            <%= f.label :email %>
+            <br>
+            <%= f.email_field :email, required: false %>
+        </p>
+
+        <p>
+            <%= f.label :bio %>
+            <br>
+            <%= f.text_field :bio, required: false %>
+        </p>
+
+        <p>
+            <%= f.label :skills %>
+            <br>
+            <%= f.text_field :skills, required: true %>
+        </p>
+
+        <p>
+            <%= f.label :learning %>
+            <br>
+            <%= f.text_field :learning, required: false %>
+        </p>
+
+        <p>
+          <%= f.label :localtime %>
+          <br>
+          <%= f.text_field :localtime, required: false %>
+      </p>
+
+
+        <button type="submit" name="action"><%= f.submit %></button>
+        <% end %>

@@ -13,3 +13,23 @@
  *= require_tree .
  *= require_self
  */
+
+ @import "materialize/components/color";
+ $primary-color: color("blue-grey", "lighten-3") !default;
+ $secondary-color: color("deep-orange", "darken-1") !default;
+ @import 'materialize';
+
+// #b0bec5 blue-grey lighten-3
+// #f4511e deep-orange darken-1
+
+body {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+   font-size: 14px;
+}
+
+h1 {
+   font-size: 35px;
+   text-transform: uppercase;
+}

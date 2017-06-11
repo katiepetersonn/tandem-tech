@@ -10,7 +10,7 @@ User.destroy_all
     image: "http://fillmurray.com/200/200",
     location: "Sydney",
     password: "chicken",
-  password_confirmation: "chicken"
+    password_confirmation: "chicken"
     })
 
     u2 = User.create({

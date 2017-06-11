@@ -1,0 +1,16 @@
+<div>
+        <h1>Welcome</h1>
+          <% if flash[:login_error] %>
+            <p>
+              <%= flash[:login_error] %>
+            </p>
+          <% end %>
+
+          <%= form_tag '/login' do %>
+            <%= email_field_tag  :email, nil, placeholder: 'Email' %>
+
+            <%= password_field_tag :password, nil, placeholder: 'Password' %>
+
+            <%= button_tag "Log In", :class => "btn waves-effect waves-light z-depth-0" %>
+          <% end %>
+</div>

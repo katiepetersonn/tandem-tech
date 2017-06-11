@@ -9,6 +9,23 @@
   </head>
 
   <body>
+    <nav>
+      <div>
+        <div >
+          <a href="/" class="brand-logo">Tandem Tech</a>
+          <ul>
+            <% if @current_user %>
+                <li><a href="/users">Search for a tutor</a></li>
+                <li><%= link_to "Log Out", "/logout", method: :delete %></li>
+                <li><a href= "<%= user_path(@current_user) %>">Hi <%= @current_user.name %></a></li>
+            <% else %>
+              <li><a href="/login">Log In</a></li>
+              <li><a href="/users/new">Sign Up</a></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <%= yield %>
   </body>
 </html>
