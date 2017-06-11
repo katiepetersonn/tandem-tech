@@ -1,0 +1,10 @@
+<%= form_for([@user, @user.comments.build]) do |f| %>
+
+  <p>
+    <!-- <%#= f.label :post %><br> -->
+    <%= f.text_area :body %>
+  </p>
+  <p>
+      <button class="btn waves-effect waves-light z-depth-0" type="submit" name="action"><%= f.submit %></button>
+  </p>
+<% end %>

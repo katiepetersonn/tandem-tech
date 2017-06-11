@@ -1,0 +1,19 @@
+<p>
+  <strong>Name:</strong>
+  <%= comment.user.name %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+</p>
+<p>
+  Posted on: <%= comment.created_at.strftime("%B %d, %Y at %I:%M %P") %>
+</p>
+<p>
+  <% if @current_user && @current_user.id == @comment.user_id  %>
+    <%= link_to 'Delete Comment', [comment.item, comment],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</p>
