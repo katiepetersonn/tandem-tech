@@ -1,12 +1,10 @@
 class CommentsController < ApplicationController
 
   def create
-    @item = Item.find(params[:item_id])
+    @item = User.find(params[:item_id])
     @comment = @user.comments.new(comment_params)
     @comment.user = @current_user
     @comment.save
-
-    # raise "hell"
 
     redirect_to user_path(@user)
   end
@@ -21,6 +19,6 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:user_id, :body)
+    params.require(:comment).permit(:teacher_id, :student_id, :body)
   end
 end

@@ -1,18 +1,27 @@
 <h1>All Users</h1>
+<div>
+    <%= form_tag(users_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search for a tutor" %>
+    <%= submit_tag "Search", :name => nil %>
+    <% end %>
+</div>
 
 <% @all_users.each do |user| %>
-  <div>
-  <img src="<%= user.image %>">
+<div>
+    <img src="<%= user.image %>">
     <div>
-      <ul>
-        <li>Name: <a class = "a-links" <%= link_to(user.name, "/users/#{user.id}") %></a></a></li>
-        <li>Email: <%= user.email %></li>
-        <li>Bio: <%= user.bio %></li>
-        <li>Skills: <%= user.skills %></li>
-        <li>Learning: <%= user.learning %></li>
-        <li>Local Time: <%= user.localtime %></li>
+        <ul>
+            <li>Name:
+            <a class="a-links" <%= link_to(user.name, "/users/#{user.id}") %></a>
+        </a>
+    </li>
+    <li>Email:<%= user.email %></li>
+    <li>Bio:<%= user.bio %></li>
+    <li>Skills:<%= user.skills %></li>
+    <li>Learning:<%= user.learning %></li>
+    <li>Local Time:<%= user.localtime %></li>
+</ul>
+</div>
 
-      </ul>
-    </div>
-  </div>
+</div>
 <% end %>

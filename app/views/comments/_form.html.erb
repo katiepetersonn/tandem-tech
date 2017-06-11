@@ -1,10 +1,9 @@
-<%= form_for([@user, @user.comments.build]) do |f| %>
+<!-- Need to add a comment through a user -->
+<div class="container">
+    <%= form_for @user do |f| %>
+        <%= f.text_field :name, required: true, placeholder: 'Name' %>
 
-  <p>
-    <!-- <%#= f.label :post %><br> -->
-    <%= f.text_area :body %>
-  </p>
-  <p>
-      <button class="btn waves-effect waves-light z-depth-0" type="submit" name="action"><%= f.submit %></button>
-  </p>
-<% end %>
+        <%= button_tag "Add comment"%>
+    <% end %>
+
+</div>

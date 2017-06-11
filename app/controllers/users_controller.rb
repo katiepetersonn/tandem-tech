@@ -4,7 +4,12 @@ class UsersController < ApplicationController
 
   def index
       @all_users = User.all
-      # @user = User.find_by(id: params['id'])
+      if params[:search]
+        # raise hell
+        @users = User.search(params[:search]).order("created_at DESC")
+      else
+        @users = User.all.order("created_at DESC")
+      end
     end
 
     def show

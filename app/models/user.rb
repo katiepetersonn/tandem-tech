@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   enum state: [ :teacher, :student, :both ]
 
+  def self.search(search)
+    self.where("name ILIKE ?", "%#{search}%")
+  end
+
 end
 
 # 0 - teacher
