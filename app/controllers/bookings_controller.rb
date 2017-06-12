@@ -16,8 +16,8 @@ class BookingsController < ApplicationController
     # need to access the users
 
     @booking = Booking.new( booking_params)
-    student_id = @current_user.id
-    raise hell
+    @booking.student_id = @current_user.id
+    # raise hell
     @booking.save
     redirect_to "/bookings/"
   end
@@ -44,7 +44,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :start_time, :end_time, :teacher, :student)
+    params.require(:booking).permit(:date, :start_time, :end_time, :teacher_id, :student_id)
   end
 
 end
