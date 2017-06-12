@@ -15,12 +15,14 @@
  */
 
  @import "materialize/components/color";
- $primary-color: color("blue-grey", "lighten-3") !default;
+ $primary-color: color("cyan", "darken-2") !default;
  $secondary-color: color("deep-orange", "darken-1") !default;
  @import 'materialize';
 
-// #b0bec5 blue-grey lighten-3
+// #0097a7 cyan darken-2
 // #f4511e deep-orange darken-1
+
+
 
 body {
    display: flex;

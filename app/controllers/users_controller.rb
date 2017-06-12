@@ -3,12 +3,11 @@ class UsersController < ApplicationController
   before_action :check_if_logged_in, only: [:edit, :update]
 
   def index
-      @all_users = User.all
+      # @all_users = User.all
       if params[:search]
-        # raise hell
-        @users = User.search(params[:search]).order("created_at DESC")
+        @all_users = User.search(params[:search]).order("created_at DESC")
       else
-        @users = User.all.order("created_at DESC")
+        @all_users = User.all.order("created_at DESC")
       end
     end
 
