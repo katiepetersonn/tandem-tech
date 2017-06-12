@@ -1,2 +1,26 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div>
+    <% if !@current_user %>
+    <button type="submit" name="action"><%= link_to 'Sign Up', new_user_path %></button>
+    <% end %>
+</div>
+
+<div>
+    <div>
+        <h3>
+            <strong>STEP 1</strong>
+        </h3>
+        <p>Find a tutor</p>
+    </div>
+    <div>
+        <h3>
+            <strong>STEP 2</strong>
+        </h3>
+        <p>Book a lesson</p>
+    </div>
+    <div>
+        <h3>
+            <strong>STEP 3</strong>
+        </h3>
+        <p>Take your lesson</p>
+    </div>
+</div>

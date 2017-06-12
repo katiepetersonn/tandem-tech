@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def index
     @all_bookings = Booking.all
+    @booking = Booking.find_by(id: params["id"])
   end
 
   def show
@@ -15,6 +16,7 @@ class BookingsController < ApplicationController
     # need to access the users
     # raise hell
     @booking = Booking.create( booking_params)
+    student_id = @current_user
     @booking.save
     redirect_to "/bookings/"
 

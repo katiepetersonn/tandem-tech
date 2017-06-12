@@ -1,9 +1,10 @@
-<h1>Your tutoring appointments</h1>
+<h1>Your Lessons</h1>
 
 <p>Date: <%= @booking.date %></p>
 <p>Start time: <%= @booking.start_time %></p>
 <p>End time: <%= @booking.end_time %></p>
 <p>Tutor: <%= @booking.teacher_id%></p>
+<p>Student: <%= @booking.student_id%></p>
 
 <div class="controls">
   <%= link_to("Edit this booking", edit_booking_path(@booking)) %>
