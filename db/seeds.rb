@@ -3,8 +3,8 @@ User.destroy_all
     u1 = User.create({
     name: "Joe Bloggs",
     email: "joe@email.com",
-    skills: "HTML, CSS",
-    learning: "JavaScript",
+    skills: "JavaScript",
+    learning: "HTML",
     localtime: "7",
     bio: "Currently learning JavaScript.",
     image: "http://fillmurray.com/200/200",
@@ -29,8 +29,8 @@ User.destroy_all
     u3 = User.create({
     name: "Sarah Gill",
     email: "sarah@email.com",
-    skills: "HTML, CSS",
-    learning: "JavaScript",
+    skills: "Python, Java",
+    learning: "CSS, HTML",
     localtime: "7",
     bio: "Currently learning JavaScript.",
     image: "http://fillmurray.com/200/200",
@@ -42,8 +42,8 @@ User.destroy_all
     u4 = User.create({
     name: "Bob Bloom",
     email: "bob@email.com",
-    skills: "HTML, CSS",
-    learning: "JavaScript",
+    skills: "Ruby, Ruby on Rails",
+    learning: "PHP",
     localtime: "7",
     bio: "Currently learning JavaScript.",
     image: "http://fillmurray.com/200/200",
@@ -55,8 +55,8 @@ User.destroy_all
     u5 = User.create({
     name: "Bill Murray",
     email: "bill@email.com",
-    skills: "HTML, CSS",
-    learning: "JavaScript",
+    skills: "JavaScript",
+    learning: "Wordpress, PHP",
     localtime: "7",
     bio: "Currently learning JavaScript.",
     image: "http://fillmurray.com/200/200",

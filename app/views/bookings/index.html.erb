@@ -2,7 +2,6 @@
 
 <% @all_bookings.each do |booking| %>
   <p>
-    <%= link_to(booking.teacher_id, "/users/#{booking.id}") %>
     <%= link_to(booking.date, "/bookings/#{booking.id}") %>
   </p>
 <% end %>

@@ -19,8 +19,8 @@
   <%= f.label :teacher_id %>
   <%= f.collection_select(:teacher_id, User.all, :id, :name) %>
 </p>
-<!-- We should be able to select which Artist created a certain work  -->
-<!-- We need to store the artist_id of whatever the user selected  -->
+
+
 
 <%= f.submit %>
 <% end %>

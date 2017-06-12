@@ -12,9 +12,21 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # Handles the submission of a form
+    # need to access the users
+    # @booking.state = params[:booking][:state]
+    raise hell
     @booking = Booking.create( booking_params)
-    redirect_to "/bookings/booking"
+
+    @booking.save
+    redirect_to "/bookings/"
+
+    # @booking = Booking.create( booking_params)
+    # @booking = @user.bookings.new(booking_params)
+    # @booking.save
+    # @booking.user = @current_user
+    #
+    # redirect_to "/bookings/booking"
+
   end
 
   def edit
@@ -23,16 +35,16 @@ class BookingsController < ApplicationController
 
   def update
     # Handles the submission of a form
-    @booking = Booking.find_by(id: params["id"])
-    booking.update( booking_params() )
-    redirect_to "/bookings/#{booking.id}"
+    booking = Booking.find_by(id: params["id"])
+    booking.update ( booking_params() )
+    redirect_to booking_path(booking)
   end
 
   def destroy
     # Deletes a particular booking
     booking = Booking.find_by(id: params["id"])
     booking.destroy
-    redirect_to
+    redirect_to booking_path(booking)
 
   end
 

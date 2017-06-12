@@ -7,7 +7,7 @@ class User < ApplicationRecord
   enum state: [ :teacher, :student, :both ]
 
   def self.search(search)
-    self.where("name ILIKE ?", "%#{search}%")
+    self.where("name ILIKE ? OR skills ILIKE ?", "%#{search}%", "%#{search}%")
   end
 
 end
