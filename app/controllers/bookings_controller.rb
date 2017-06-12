@@ -14,12 +14,12 @@ class BookingsController < ApplicationController
 
   def create
     # need to access the users
-    # raise hell
-    @booking = Booking.create( booking_params)
-    student_id = @current_user
+
+    @booking = Booking.new( booking_params)
+    student_id = @current_user.id
+    raise hell
     @booking.save
     redirect_to "/bookings/"
-
   end
 
   def edit
