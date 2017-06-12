@@ -100,9 +100,9 @@ User.destroy_all
 
 Booking.destroy_all
 
-  b1 = Booking.create(available: false, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u1.id, student_id: u2.id)
+  b1 = Booking.create(date:"11-Jul-2017", available: false, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u1.id, student_id: u2.id)
 
-  b2 = Booking.create(available: false, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u3.id, student_id: u4.id)
+  b2 = Booking.create(date:"14-Jul-2017", available: false, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u3.id, student_id: u4.id)
 
 puts "Booking Count: #{ Booking.all.count }"
 

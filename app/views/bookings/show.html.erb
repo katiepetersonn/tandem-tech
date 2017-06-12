@@ -1,2 +1,13 @@
-<h1>Bookings#show</h1>
-<p>Find me in app/views/bookings/show.html.erb</p>
+<h1>Your tutoring appointments</h1>
+
+<p>Date: <%= @booking.date %></p>
+<p>Start time: <%= @booking.start_time %></p>
+<p>End time: <%= @booking.end_time %></p>
+<p>Tutor: <%= @booking.teacher_id%></p>
+
+<div class="controls">
+  <%= link_to("Edit this booking", edit_booking_path(@booking)) %>
+  <%= link_to("Delete this booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?"}) %>
+</div>
+
+<!-- Show which student created this booking  -->

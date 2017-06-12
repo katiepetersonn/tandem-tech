@@ -1,0 +1,34 @@
+<%= form_for @booking do |f| %>
+
+<p>
+  <%= f.label :date %>
+  <%= f.date_field :date, required: true %>
+</p>
+
+<p>
+  <%= f.label :start_time %>
+  <%= f.time_field :start_time, required: true %>
+</p>
+
+<p>
+  <%= f.label :end_time %>
+  <%= f.time_field :end_time, required: true %>
+</p>
+
+<p>
+  <%= f.label :teacher_id %>
+  <%= f.collection_select(:teacher_id, User.all, :id, :name) %>
+</p>
+<!-- We should be able to select which Artist created a certain work  -->
+<!-- We need to store the artist_id of whatever the user selected  -->
+
+<%= f.submit %>
+<% end %>
+
+<!-- t.datetime "start_time"
+t.datetime "end_time"
+t.integer  "teacher_id"
+t.integer  "student_id"
+t.boolean  "available",  default: true
+t.datetime "created_at",                null: false
+t.datetime "updated_at",                null: false -->
