@@ -1,10 +1,14 @@
 <p>
   <strong>Comment:</strong>
-  <%= comment.body %>
+  <%= @comment.body %>
 </p>
 
 <p>
-  <%= link_to 'Delete Comment', [comment.project, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
+    <div>
+    <button>Delete</button>
+    </div>
+
 </p>
+
+
+ <!-- <#%= ("Delete this comment", comment_path(@comment), method: :delete, data: { confirm: "Are you sure?"})%>  -->

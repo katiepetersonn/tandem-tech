@@ -4,7 +4,7 @@
         <%= f.text_field :body, required: true, placeholder: 'Message' %>
 
         <!-- hidden_field -->
-        <%= hidden_field(:teacher_id, :value => @user.id ) %>
+        <%= f.hidden_field(:teacher_id, :value => @user.id ) %>
 
         <%= button_tag "Add comment"%>
     <% end %>

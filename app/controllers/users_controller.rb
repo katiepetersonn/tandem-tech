@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :check_if_logged_in, only: [:edit, :update]
 
   def index
+      @all_comments = Comment.all
       @all_users = User.all
       if params[:search]
         @all_users = User.search(params[:search]).order("created_at DESC")

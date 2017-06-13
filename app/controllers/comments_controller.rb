@@ -3,12 +3,10 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     @comment.user_id = @current_user.id
-    raise hell
-    @comment.teacher_id =
+    # raise hell
     @comment.save
 
-    redirect_to "/users/"
-    # /users/:user_id/comments/:id(.:format)
+    redirect_to users_path(@user)
   end
 
   def destroy

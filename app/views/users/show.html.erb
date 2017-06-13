@@ -27,11 +27,17 @@
           </div>
 
           <div>
-
             <h2>Add Comment</h2>
-              <% @comments = @user.comments %>
               <%= render 'comments/form' %>
           </div>
+
+          <h2>Comments</h2>
+              <% @user.comments.each do |comment| %>
+              <p><%= comment.user_id %>
+                <%= comment.body %>
+                <%= comment.created_at %></p>
+              <% end %>
+            </div>
 
 
           <div class="container controls">
