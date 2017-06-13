@@ -5,9 +5,6 @@ class ApplicationController < ActionController::Base
   before_action :fetch_user
 
   private
-    def lucky_number
-      @lucky_number = Random.rand(1..100)
-    end
 
     def fetch_user
       @current_user = User.find_by(id: session[:user_id]) if session[:user_id]

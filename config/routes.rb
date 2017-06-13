@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :bookings
+  
   get "/bookings/:id/book" => "bookings#book"
     # link_to --> "/bookings/:id/book"
     # we will need a book method in the bookings controller
