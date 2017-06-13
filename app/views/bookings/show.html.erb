@@ -8,7 +8,11 @@
 
 <div class="controls">
   <%= link_to("Edit this booking", edit_booking_path(@booking)) %>
-  <%= link_to("Delete this booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?"}) %>
-</div>
+
+  <!-- needs to be a button instead of a link to -->
+
+  <%= <button> ("Delete this booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?"}) </button> %>
+  </div>
+
 
 <%= @booking.to_json %>

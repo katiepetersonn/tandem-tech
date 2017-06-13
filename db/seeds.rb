@@ -111,11 +111,11 @@ Comment.destroy_all
   c1 = Comment.create ({
         body: "Awesome tutor, thanks!",
         teacher_id: u1.id,
-        student_id: u2.id
+        user_id: u2.id
       })
   c2 = Comment.create ({
         body: "Really good at explaining things!",
         teacher_id: u3.id,
-        student_id: u4.id
+        user_id: u4.id
       })
 puts "Comment Count: #{Comment.all.count }"

@@ -1,12 +1,14 @@
 class CommentsController < ApplicationController
 
   def create
-    @user = User.find(params[:project_id])
-    @comment = @user.comments.new(comment_params)
-    @comment.student_id = @current_user.id
+    @comment = Comment.new(comment_params)
+    @comment.user_id = @current_user.id
+    raise hell
+    @comment.teacher_id =
     @comment.save
 
-    redirect_to project_path(@project)
+    redirect_to "/users/"
+    # /users/:user_id/comments/:id(.:format)
   end
 
   def destroy
@@ -18,6 +20,6 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:teacher_id, :student_id, :body)
+    params.require(:comment).permit(:teacher_id, :user_id, :body)
   end
 end

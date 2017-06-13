@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :bookings
 
+  post '/comments' => 'comments#create', as: 'comments'
+
   resources :users do
     resources :comments
   end

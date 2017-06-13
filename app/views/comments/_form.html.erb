@@ -1,7 +1,10 @@
 <div class="container">
-    <%= form_for([@student_id, @user.comments.build]) do |f| %>
-    <!-- <#%= form_for @user do |f| %> -->
+    <!-- <#%= form_for([@student_id, @user.comments.build]) do |f| %> -->
+    <%= form_for @comment do |f| %>
         <%= f.text_field :body, required: true, placeholder: 'Message' %>
+
+        <!-- hidden_field -->
+        <%= hidden_field(:teacher_id, :value => @user.id ) %>
 
         <%= button_tag "Add comment"%>
     <% end %>
