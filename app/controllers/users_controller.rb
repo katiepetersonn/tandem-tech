@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     def show
       @user = User.find(params[:id])
       @comment = Comment.new
-      # @comment.user == @current_user
+      @comment.student_id = @current_user.id
     end
 
     def new

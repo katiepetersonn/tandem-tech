@@ -1,7 +1,7 @@
-<!-- Need to add a comment through a user -->
 <div class="container">
-    <%= form_for @user do |f| %>
-        <%= f.text_field :name, required: true, placeholder: 'Name' %>
+    <%= form_for([@student_id, @user.comments.build]) do |f| %>
+    <!-- <#%= form_for @user do |f| %> -->
+        <%= f.text_field :body, required: true, placeholder: 'Message' %>
 
         <%= button_tag "Add comment"%>
     <% end %>

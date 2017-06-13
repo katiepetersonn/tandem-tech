@@ -1,20 +1,19 @@
 class CommentsController < ApplicationController
 
   def create
-    @item = User.find(params[:item_id])
+    @user = User.find(params[:project_id])
     @comment = @user.comments.new(comment_params)
-    @comment.user = @current_user
+    @comment.student_id = @current_user.id
     @comment.save
 
-    redirect_to user_path(@user)
+    redirect_to project_path(@project)
   end
 
   def destroy
-    @user = User.find(params[:item_id])
+    @user = User.find(params[:project_id])
     @comment = @user.comments.find(params[:id])
     @comment.destroy
-    redirect_to user_path(@user)
-
+    redirect_to users_path(@user)
   end
 
   private

@@ -36,9 +36,9 @@
 
           <div class="container controls">
             <% if @current_user && @current_user.id == @user.id  %>
-              <button class="btn waves-effect waves-light z-depth-0" type="button" name="action"><%= link_to("Edit", "/users/#{@user.id}/edit") %></button>
+              <button type="button" name="action"><%= link_to("Edit", "/users/#{@user.id}/edit") %></button>
 
-            <button class="btn waves-effect waves-light z-depth-0" type="button" name="action"><%= link_to("Delete", "/users/#{@user.id}", method: :delete, data: { confirm: "Are you sure?" }) %></button>
+            <button type="button" name="action"><%= link_to("Delete", "/users/#{@user.id}", method: :delete, data: { confirm: "Are you sure?" }) %></button>
           <% end %>
           </div>
         </div>

@@ -13,11 +13,8 @@ class BookingsController < ApplicationController
   end
 
   def create
-    # need to access the users
-
     @booking = Booking.new( booking_params)
     @booking.student_id = @current_user.id
-    # raise hell
     @booking.save
     redirect_to "/bookings/"
   end
@@ -35,10 +32,10 @@ class BookingsController < ApplicationController
 
   def destroy
     # Deletes a particular booking
-    booking = Booking.find_by(id: params["id"])
+    raise hell
+    @booking = Booking.find_by(id: params["id"])
     booking.destroy
     redirect_to booking_path(booking)
-
   end
 
   private
