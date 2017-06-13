@@ -15,10 +15,7 @@
   <%= f.time_field :end_time, required: true %>
 </p>
 
-<p>
-  <%= f.label :teacher_id %>
-  <%= f.collection_select(:teacher_id, User.all, :id, :name) %>
-</p>
+
 
 <%= f.submit %>
 <% end %>

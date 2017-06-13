@@ -33,11 +33,16 @@
 
           <h2>Comments</h2>
               <% @user.comments.each do |comment| %>
-              <p><%= comment.user_id %>
+              <p>
+                <%= comment.user_id %>
                 <%= comment.body %>
-                <%= comment.created_at %></p>
+              </p>
               <% end %>
             </div>
+
+            <button>Delete this comment</button>
+            <button>Edit this comment</button>
+
 
 
           <div class="container controls">
@@ -47,6 +52,7 @@
             <button type="button" name="action"><%= link_to("Delete", "/users/#{@user.id}", method: :delete, data: { confirm: "Are you sure?" }) %></button>
           <% end %>
           </div>
+          
         </div>
       </div>
   </div>

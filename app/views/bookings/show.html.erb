@@ -1,8 +1,8 @@
 <h1>Your Lessons</h1>
 
-<p>Date: <%= @booking.date %></p>
-<p>Start time: <%= @booking.start_time %></p>
-<p>End time: <%= @booking.end_time %></p>
+<p>Date: <%= @booking.date.strftime("%B %d, %Y  %I:%M %P")  %></p>
+<p>Start time: <%= @booking.start_time.strftime("%H: %M %P") %></p>
+<p>End time: <%= @booking.end_time.strftime("%H: %M %P")  %></p>
 <p>Tutor: <%= @booking.teacher_id%></p>
 <p>Student: <%= @booking.student_id%></p>
 
@@ -11,7 +11,8 @@
 
   <!-- needs to be a button instead of a link to -->
 
-  <%= <button> ("Delete this booking", booking_path(@booking), method: :delete, data: { confirm: "Are you sure?"}) </button> %>
+    <%= button_to("Delete", booking_path(@booking), method: :delete, data: {confirm: "Are you sure?"}) %><
+
   </div>
 
 
