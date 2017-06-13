@@ -15,12 +15,14 @@
  */
 
  @import "materialize/components/color";
- $primary-color: color("cyan", "darken-2") !default;
+ $primary-color: color("teal", "lighten-3") !default;
  $secondary-color: color("deep-orange", "darken-1") !default;
  @import 'materialize';
 
-// #0097a7 cyan darken-2
+// #b2dfdb teal lighten-4
 // #f4511e deep-orange darken-1
+
+// #80cbc4 teal lighten-3
 
 
 
@@ -34,8 +36,33 @@ body {
 h1 {
   font-size: 20px;
   text-align: center;
+  color: white;
 }
 
 h2 {
   font-size: 17px;
+}
+
+.nav-wrapper {
+   background-color: #179FB5;
+}
+
+nav .brand-logo {
+  color: white;
+}
+
+nav ul a {
+  color: white;
+}
+
+
+//Homepage
+
+.hero {
+   background: image-url('test.png');
+   background-size: cover;
+  max-width: 100%;
+   height: 100vh;
+   overflow: hidden;
+   border: none;
 }
