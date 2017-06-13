@@ -26,13 +26,13 @@
 
           <div>
             <h2>Book a lesson with <%= @user.name %> </h2>
-
             <% @all_bookings.each do |booking| %>
-              <% if booking.student_id == nil %>
+              <% if booking.student_id == nil && booking.teacher_id == @user.id %>
                 <p>
                   <a href="/bookings/<%= booking.id %>/book">
+                    <!-- <#%= booking.to_json %> -->
                   <%= booking.date.strftime("%e %b %y") %> :
-                  <%= booking.start_time.strftime("%I:%M") %> - <%= booking.end_time.strftime("%I:%M") %>
+                  <%= booking.start_time.strftime("%I:%M %p") %> - <%= booking.end_time.strftime("%I:%M %p") %>
                 </a>
                 </p>
             <% end %>
@@ -40,8 +40,49 @@
           </div>
 
           <!-- UPCOMING BOOKINGS -->
+          <div>
+            <% if @current_user == @user %>
+            <h2>Your upcoming lessons</h2>
 
-          <h2>Your upcoming lessons</h2>
+            <% @all_bookings.each do |booking| %>
+              <% if booking.student_id == @current_user.id %>
+                <p>
+                  <a href="/bookings/<%= booking.id %>/book">
+
+                  <%= booking.date.strftime("%e %b %y") %> :
+                  <%= booking.start_time.strftime("%I:%M %p") %> - <%= booking.end_time.strftime("%I:%M %p") %>
+                  Tutor <%= booking.teacher.name %>
+                  </a>
+
+                </p>
+            <% end %>
+            <% end %>
+            <% end %>
+          </div>
+
+
+          <div>
+            <% if @current_user == @user %>
+            <h2>Your upcoming tutoring sessions</h2>
+
+            <% @all_bookings.each do |booking| %>
+              <% if booking.teacher_id == @current_user.id %>
+                <p>
+                  <a href="/bookings/<%= booking.id %>/book">
+                    <!-- <#%= irb %> -->
+                  <%= booking.date.strftime("%e %b %y") %> :
+                  <%= booking.start_time.strftime("%I:%M %p") %> - <%= booking.end_time.strftime("%I:%M %p") %>
+
+                </a>
+
+                </p>
+                <% end %>
+            <% end %>
+            <% end %>
+          </div>
+
+
+
 
 
           <!-- COMMENTS -->

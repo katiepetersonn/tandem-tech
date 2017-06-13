@@ -30,7 +30,7 @@ class BookingsController < ApplicationController
     @booking.student_id = @current_user.id
     # Update the booking's available property to false
     @booking.available = false
-    @booking.save
+    
     # Redirect to somewhere
     redirect_to "/bookings/"
 
