@@ -13,10 +13,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    BookingMailer.confirmation(@user).deliver_now
     @booking = Booking.new( booking_params)
     @booking.teacher_id = @current_user.id
     @booking.save
+    # raise hell
+
     redirect_to "/bookings/"
   end
 
@@ -31,6 +32,8 @@ class BookingsController < ApplicationController
     @booking.student_id = @current_user.id
     # Update the booking's available property to false
     @booking.available = false
+    
+    BookingMailer.confirmation(@booking).deliver_now
 
     # Redirect to somewhere
     redirect_to "/bookings/"

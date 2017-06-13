@@ -10,10 +10,9 @@
 
   <body>
     <nav>
-      <div>
-        <div >
-          <!-- <a href="/" class="brand-logo">Tandem Tech</a> -->
-          <ul>
+      <div class="nav-wrapper">
+          <a href="/" class="brand-logo">Tandem Tech</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
             <% if @current_user %>
                 <li><a href="/users">Search for a tutor</a></li>
                 <li><a href="/bookings/new">Create a timeslot</a></li>
@@ -26,7 +25,6 @@
               <li><a href="/users/new">Sign Up</a></li>
             <% end %>
           </ul>
-        </div>
       </div>
     </nav>
     <%= yield %>
