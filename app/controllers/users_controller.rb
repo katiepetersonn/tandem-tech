@@ -13,9 +13,12 @@ class UsersController < ApplicationController
     end
 
     def show
+
+      @all_bookings = Booking.all
       @user = User.find(params[:id])
       @comment = Comment.new
       @comment.user_id = @current_user.id
+      @booking = Booking.find_by(id: params["id"])
     end
 
     def new

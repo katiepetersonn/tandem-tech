@@ -23,10 +23,23 @@ class BookingsController < ApplicationController
     @booking = Booking.find_by(id: params["id"])
   end
 
+  def book
+    # Find the booking (params[:id])
+    @booking = Booking.find_by(id: params["id"])
+    # Update the booking's student_id to be whoever is logged in
+    @booking.student_id = @current_user.id
+    # Update the booking's available property to false
+    @booking.available = false
+    @booking.save
+    # Redirect to somewhere
+    redirect_to "/bookings/"
+
+  end
+
   def update
     # Handles the submission of a form
-    booking = Booking.find_by(id: params["id"])
-    booking.update ( booking_params() )
+    @booking = Booking.find_by(id: params["id"])
+    @booking.update ( booking_params() )
     redirect_to booking_path(booking)
   end
 

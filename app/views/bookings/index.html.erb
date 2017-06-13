@@ -1,13 +1,14 @@
-<h1>All Bookings</h1>
+<h1>My available timeslots</h1>
 
 <% @all_bookings.each do |booking| %>
+<% if booking.student_id == nil %>
   <p>
     <%= link_to(booking.date, "/bookings/#{booking.id}") %>
     <%= booking.date %>
     <p>Start time: <%= booking.start_time %></p>
     <p>End time: <%= booking.end_time %></p>
     <p>Tutor: <%= booking.teacher_id%></p>
-    <p>Student: <%= booking.student_id%></p>
+    <!-- <p>Student: <#%= booking.student_id%></p> -->
   </p>
-
+<% end %>
 <% end %>

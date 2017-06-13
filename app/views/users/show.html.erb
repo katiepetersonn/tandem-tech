@@ -22,37 +22,60 @@
             <li>Local Time: <%= @user.localtime %></li>
           </ul>
 
+        <!-- BOOKINGS  -->
+
           <div>
-            <a href="/bookings/new">Book a lesson with <%= @user.name %></a>
+            <h2>Book a lesson with <%= @user.name %> </h2>
+
+            <% @all_bookings.each do |booking| %>
+              <% if booking.student_id == nil %>
+                <p>
+                  <a href="/bookings/<%= booking.id %>/book">
+                  <%= booking.date.strftime("%e %b %y") %> :
+                  <%= booking.start_time.strftime("%I:%M") %> - <%= booking.end_time.strftime("%I:%M") %>
+                </a>
+                </p>
+            <% end %>
+            <% end %>
           </div>
+
+          <!-- UPCOMING BOOKINGS -->
+
+          <h2>Your upcoming lessons</h2>
+
+
+          <!-- COMMENTS -->
 
           <div>
             <h2>Add Comment</h2>
               <%= render 'comments/form' %>
           </div>
 
-          <h2>Comments</h2>
-              <% @user.comments.each do |comment| %>
-              <p>
-                <%= comment.user_id %>
-                <%= comment.body %>
-              </p>
-              <% end %>
-            </div>
-
+          <div>
+            <h2>Comments</h2>
+                <% @user.comments.each do |comment| %>
+                <p>
+                  <%= comment.user_id %>
+                  <%= comment.body %>
+                </p>
+                <% end %>
+          </div>
+      <!-- Edit and delete comments -->
             <button>Delete this comment</button>
             <button>Edit this comment</button>
 
 
 
+
+          <!-- Edit and delete profile -->
           <div class="container controls">
             <% if @current_user && @current_user.id == @user.id  %>
-              <button type="button" name="action"><%= link_to("Edit", "/users/#{@user.id}/edit") %></button>
+              <button type="button" name="action"><%= link_to("Edit profile", "/users/#{@user.id}/edit") %></button>
 
-            <button type="button" name="action"><%= link_to("Delete", "/users/#{@user.id}", method: :delete, data: { confirm: "Are you sure?" }) %></button>
+            <button type="button" name="action"><%= link_to("Delete profile", "/users/#{@user.id}", method: :delete, data: { confirm: "Are you sure?" }) %></button>
           <% end %>
           </div>
-          
+
         </div>
       </div>
   </div>
