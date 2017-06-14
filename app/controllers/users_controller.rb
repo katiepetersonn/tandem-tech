@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     end
 
     def show
-
       @all_bookings = Booking.all
       @user = User.find(params[:id])
       @comment = Comment.new

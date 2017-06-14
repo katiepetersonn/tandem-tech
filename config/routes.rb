@@ -12,9 +12,10 @@ Rails.application.routes.draw do
     # Redirect to somewhere
 
   post '/comments' => 'comments#create', as: 'comments'
+  delete '/comments/:id' => 'comments#destroy'
 
   resources :users do
-    resources :comments
+    # resources :comments
   end
 
   get '/login' => 'session#new'

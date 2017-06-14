@@ -102,15 +102,14 @@
             <h2>Comments</h2>
                 <% @user.comments.each do |comment| %>
                 <p>
+                  <%= comment.id %>
                   <%= comment.teacher_id %>
                   <%= comment.body %>
                 </p>
+                <%= button_to("Delete", "/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure?"}) %>
+
                 <% end %>
           </div>
-      <!-- Edit and delete comments -->
-            <button>Delete this comment</button>
-            <button>Edit this comment</button>
-
 
 
 
