@@ -11,7 +11,7 @@ end
 # gem 'httparty'
 #Use stripe
 gem 'stripe', :source => 'https://code.stripe.com/'
-gem 'rest-client'
+gem 'rest-client', '~> 2.0.2'
 
 # Use materialize-sass
 gem 'materialize-sass'

@@ -7,9 +7,14 @@ class TransactionsController < ApplicationController
   end
 
   def create
+
     @booking = Booking.find_by!(
     id: params[:id]
     )
+
+    @booking.student_id = @current_user.id
+    @booking.available = false
+
     token = params[:stripeToken]
     # binding.pry
     charge = Stripe::Charge.create(
@@ -24,7 +29,10 @@ class TransactionsController < ApplicationController
       stripe_id:  charge.id
     )
 
-    redirect_to "/"
+    # Send email
+    BookingMailer.confirmation(@booking).deliver_now
+    # Show booking success
+    # raise "hell"
   end
 
 
