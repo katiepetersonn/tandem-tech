@@ -2,7 +2,7 @@
 
 <p>
   <%= f.label :date %>
-  <%= f.date_field :date, required: true %>
+  <%= f.date_field :date, min: Date.today, required: true %>
 </p>
 
 <p>

@@ -1,4 +1,6 @@
 class BookingsController < ApplicationController
+
+
   def index
     @all_bookings = Booking.all
   end
@@ -16,7 +18,6 @@ class BookingsController < ApplicationController
     @booking.teacher_id = @current_user.id
     @booking.save
     # raise hell
-
     redirect_to "/bookings/"
   end
 
@@ -25,7 +26,7 @@ class BookingsController < ApplicationController
   end
 
   def book
-    raise "hell"
+    # raise "hell"
     # Find the booking (params[:id])
     # @booking = Booking.find_by(id: params["id"])
     # # Update the booking's student_id to be whoever is logged in
@@ -33,9 +34,9 @@ class BookingsController < ApplicationController
     # # Update the booking's available property to false
     # @booking.available = false
     # BookingMailer.confirmation(@booking).deliver_now
-    #
-    # # CREATE YOUR PAYMENT HERE
-    #
+
+    # CREATE YOUR PAYMENT HERE
+
 
     redirect_to "/bookings"
 
