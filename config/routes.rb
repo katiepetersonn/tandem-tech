@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :sales
   root to: "pages#home"
 
   resources :bookings
