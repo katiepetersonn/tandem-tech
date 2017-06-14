@@ -1,16 +1,17 @@
 class CommentsController < ApplicationController
 
   def create
-    @comment = Comment.new(comment_params)
-    @comment.user_id = @current_user.id
-    # raise hell
-    @comment.save
 
-    redirect_to users_path(@user)
+    @teacher = User.find_by(id: params['comment']['teacher_id'])
+    @comment = Comment.new(comment_params)
+    @comment.user_id = @teacher.id
+    @comment.save
+    
+    redirect_to "/users/#{@teacher.id}"
   end
 
   def destroy
-    @user = User.find(params[:project_id])
+    @user = User.find(params[:id])
     @comment = @user.comments.find(params[:id])
     @comment.destroy
     redirect_to users_path(@user)

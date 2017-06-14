@@ -37,7 +37,6 @@ class BookingsController < ApplicationController
 
     # CREATE YOUR PAYMENT HERE
 
-
     redirect_to "/bookings"
 
   end
