@@ -11,7 +11,7 @@ class TransactionsController < ApplicationController
     id: params[:id]
     )
     token = params[:stripeToken]
-    binding.pry
+    # binding.pry
     charge = Stripe::Charge.create(
       amount:      @booking.price,
       currency:    "aud",
