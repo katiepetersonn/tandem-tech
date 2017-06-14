@@ -100,11 +100,11 @@ User.destroy_all
 
 Booking.destroy_all
 
-  b1 = Booking.create(date:"11-Aug-2017", available: false, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u1.id, student_id: u2.id, price: 20)
+  b1 = Booking.create(date:"11-Aug-2017", available: false, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u1.id, student_id: u2.id, price: 200)
 
-  b2 = Booking.create(date:"14-Jul-2017", available: false, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u3.id, student_id: u4.id, price: 20)
-  b3 = Booking.create(date:"14-Jul-2017", available: true, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u3.id, price: 20)
-  b4 = Booking.create(date:"14-Jul-2017", available: true, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u3.id, price: 20)
+  b2 = Booking.create(date:"14-Jul-2017", available: false, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u3.id, student_id: u4.id, price: 200)
+  b3 = Booking.create(date:"14-Jul-2017", available: true, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u3.id, price: 200)
+  b4 = Booking.create(date:"14-Jul-2017", available: true, start_time: Time.now + 2.days, end_time: Time.now + 3.days, teacher_id: u3.id, price: 200)
 
 puts "Booking Count: #{ Booking.all.count }"
 

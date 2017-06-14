@@ -6,7 +6,7 @@ class Booking < ApplicationRecord
   has_many :sales
 
   validates_numericality_of :price,
-    greater_than: 0,
+    greater_than: 50,
     message: "must be at least 50 cents"
 
 end
