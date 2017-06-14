@@ -6,6 +6,7 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.datetime :date
       t.integer :teacher_id
       t.integer :student_id
+
       t.boolean :available, default: true
 
       t.timestamps
