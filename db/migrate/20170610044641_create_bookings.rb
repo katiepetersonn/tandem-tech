@@ -6,6 +6,9 @@ class CreateBookings < ActiveRecord::Migration[5.0]
       t.datetime :date
       t.integer :teacher_id
       t.integer :student_id
+      t.string :permalink
+      t.integer :price
+      t.references :user
 
       t.boolean :available, default: true
 

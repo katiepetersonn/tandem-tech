@@ -1,7 +1,7 @@
 <h1>My Lessons</h1>
 
 <% @all_bookings.each do |booking| %>
-<% if booking.student_id == nil %>
+<%# if booking.student_id == nil %>
   <p>
     <%= link_to(booking.date, "/bookings/#{booking.id}") %>
     <%= booking.date %>
@@ -10,5 +10,5 @@
     <p>Tutor: <%= booking.teacher.name%></p>
     <!-- <p>Student: <#%= booking.student_id%></p> -->
   </p>
-<% end %>
+<%# end %>
 <% end %>

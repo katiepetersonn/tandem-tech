@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   def index
     @all_bookings = Booking.all
-    @booking = Booking.find_by(id: params["id"])
   end
 
   def show
@@ -26,17 +25,19 @@ class BookingsController < ApplicationController
   end
 
   def book
+    raise "hell"
     # Find the booking (params[:id])
-    @booking = Booking.find_by(id: params["id"])
-    # Update the booking's student_id to be whoever is logged in
-    @booking.student_id = @current_user.id
-    # Update the booking's available property to false
-    @booking.available = false
-    
-    BookingMailer.confirmation(@booking).deliver_now
+    # @booking = Booking.find_by(id: params["id"])
+    # # Update the booking's student_id to be whoever is logged in
+    # @booking.student_id = @current_user.id
+    # # Update the booking's available property to false
+    # @booking.available = false
+    # BookingMailer.confirmation(@booking).deliver_now
+    #
+    # # CREATE YOUR PAYMENT HERE
+    #
 
-    # Redirect to somewhere
-    redirect_to "/bookings/"
+    redirect_to "/bookings"
 
   end
 
@@ -59,7 +60,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:date, :start_time, :end_time, :teacher_id, :student_id)
+    params.require(:booking).permit(:date, :start_time, :end_time, :teacher_id, :student_id, :permalink, :price)
   end
 
 end

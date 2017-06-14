@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  resources :sales
   root to: "pages#home"
 
   resources :bookings
-  
-  get "/bookings/:id/book" => "bookings#book"
+
+  post "/bookings/:id/book" => "transactions#create"
     # link_to --> "/bookings/:id/book"
     # we will need a book method in the bookings controller
     # Find the booking (params[:id])
@@ -20,5 +21,12 @@ Rails.application.routes.draw do
   get '/login' => 'session#new'
   post '/login' => 'session#create'
   get '/logout' => 'session#destroy'
+
+  get "/buy/:permalink", to: "transactions#new", as: :show_buy
+
+  post "/buy/:permalink", to:"transactions#create", as: :buy
+
+  get "/pickup/:guid", to:"transactions#pickup", as: :pickup
+
 
 end

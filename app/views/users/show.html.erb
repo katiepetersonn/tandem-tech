@@ -29,10 +29,16 @@
             <% @all_bookings.each do |booking| %>
               <% if booking.student_id == nil && booking.teacher_id == @user.id %>
                 <p>
-                  <a href="/bookings/<%= booking.id %>/book">
+                  <%= form_tag "/bookings/#{booking.id}/book" do %>
+                    <script src="https://checkout.stripe.com/v2/checkout.js"
+                      class="stripe-button"
+                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                      data-description="<%= 'aklsnflkanslkn' %>"
+                      data-amount="<%= booking.price %>"></script>
+                  <% end %>
                     <!-- <#%= booking.to_json %> -->
-                  <%= booking.date.strftime("%e %b %y") %> :
-                  <%= booking.start_time.strftime("%I:%M %p") %> - <%= booking.end_time.strftime("%I:%M %p") %>
+                  <%#= booking.date.strftime("%e %b %y") %> :
+                  <%#= booking.start_time.strftime("%I:%M %p") %> - <%= booking.end_time.strftime("%I:%M %p") %>
                 </a>
                 </p>
             <% end %>
