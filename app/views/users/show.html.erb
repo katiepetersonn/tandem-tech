@@ -1,128 +1,112 @@
-
 <div>
-  <div>
     <div>
-      <div>
-        <h1><%= @user.name %></h1>
         <div>
-        <%if @user.image %>
-          <div class="round">
-            <%= image_tag( @user.image ) %>
-          </div>
-        <%end %>
-        </div>
+            <div>
+                <h1><%= @user.name %></h1>
+                <div>
+                    <%if @user.image %>
+                    <div class="round">
+                        <%= image_tag( @user.image ) %>
+                    </div>
+                    <%end %>
+                </div>
 
-          <ul>
-            <li>Name: <%= @user.name %></li>
-            <li>Location: <%= @user.location %></li>
-            <li>Skills: <%= @user.skills %></li>
-            <li>Email: <%= @user.email %></li>
-            <li>Bio: <%= @user.bio %></li>
-            <li>Learning: <%= @user.learning %></li>
-            <li>Local Time: <%= @user.localtime %></li>
-          </ul>
+                <ul>
+                    <li>Name:
+                        <%= @user.name %></li>
+                    <li>Hourly rate:
+                        <%= @user.price %></li>
+                    <li>Location:
+                        <%= @user.location %></li>
+                    <li>Tutor for:
+                        <%= @user.skills %></li>
+                    <li>Learning:
+                        <%= @user.learning %></li>
+                    <li>Email:
+                        <%= @user.email %></li>
+                    <li>Bio:
+                        <%= @user.bio %></li>
+                </ul>
 
-        <!-- BOOKINGS  -->
+                <!-- BOOKINGS  -->
 
-          <div>
-            <h2>Book a lesson with <%= @user.name %> </h2>
-            <% @all_bookings.each do |booking| %>
-              <% if booking.student_id == nil && booking.teacher_id == @user.id %>
-                <p>
-                  <%= form_tag "/bookings/#{booking.id}/book" do %>
-                    <script src="https://checkout.stripe.com/v2/checkout.js"
-                      class="stripe-button"
-                      data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-                      data-description="<%= 'aklsnflkanslkn' %>"
-                      data-amount="<%= booking.price %>"></script>
-                  <% end %>
-                    <!-- <#%= booking.to_json %> -->
-                  <%#= booking.date.strftime("%e %b %y") %> :
-                  <%#= booking.start_time.strftime("%I:%M %p") %> - <%= booking.end_time.strftime("%I:%M %p") %>
-                </a>
-                </p>
-            <% end %>
-            <% end %>
-          </div>
+                <div>
+                    <h2>Book a lesson with
+                        <%= @user.name %>
+                    </h2>
+                    <% @all_bookings.each do |booking| %>
+                    <% if booking.student_id == nil && booking.teacher_id == @user.id || booking.teacher_id == @current_user.id%>
+                    <p>
+                        <!-- <#%= booking.to_json %> -->
+                        <%= booking.date.strftime("%e %b %y") %>
+                        :
+                        <%= booking.start_time.strftime("%I:%M %p") %>
+                        -
+                        <%= booking.end_time.strftime("%I:%M %p") %>
 
-          <!-- UPCOMING BOOKINGS -->
-          <div>
-            <% if @current_user == @user %>
-            <h2>Your upcoming lessons</h2>
-
-            <% @all_bookings.each do |booking| %>
-              <% if booking.student_id == @current_user.id %>
-                <p>
-                  <a href="/bookings/<%= booking.id %>/book">
-
-                  <%= booking.date.strftime("%e %b %y") %> :
-                  <%= booking.start_time.strftime("%I:%M %p") %> - <%= booking.end_time.strftime("%I:%M %p") %>
-                  Tutor <%= booking.teacher.name %>
-                  </a>
-
-                </p>
-            <% end %>
-            <% end %>
-            <% end %>
-          </div>
-
-
-          <div>
-            <% if @current_user == @user %>
-            <h2>Your upcoming tutoring sessions</h2>
-
-            <% @all_bookings.each do |booking| %>
-              <% if booking.teacher_id == @current_user.id %>
-                <p>
-                  <a href="/bookings/<%= booking.id %>/book">
-                    <!-- <#%= irb %> -->
-                  <%= booking.date.strftime("%e %b %y") %> :
-                  <%= booking.start_time.strftime("%I:%M %p") %> - <%= booking.end_time.strftime("%I:%M %p") %>
-
-                </a>
-
+                        <%= form_tag "/bookings/#{booking.id}/book" do %>
+                        <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="<%= 'Tandem Tech' %>" data-amount="<%= booking.price %>"></script>
+                        <% end %>
+                    </a>
                 </p>
                 <% end %>
-            <% end %>
-            <% end %>
-          </div>
+                <% end %>
+            </div>
+
+            <!-- UPCOMING BOOKINGS -->
+            <div>
+                <% if @current_user == @user %>
+                <h2>Your upcoming lessons</h2>
+
+                <% @all_bookings.each do |booking| %>
+                <% if booking.student_id == @current_user.id || booking.teacher_id == @current_user.id %>
+                <div>
+                    <ul>
+                        <li>
+                            <li>Date: <%= booking.date.strftime("%e %b %y") %></li>
+                            <li>Start time: <%= booking.start_time.strftime("%I:%M %p") %></li>
+                            <li>End time: <%= booking.start_time.strftime("%I:%M %p") %></li>
+                            <li>Tutor: <%= booking.teacher.name %></li>
+                            <li>Student: <%= booking.student.name %></li>
+
+                    </ul>
+                </div>
+                <% end %>
+                <% end %>
+                <% end %>
+            </div>
 
 
+            <!-- COMMENTS -->
 
-
-
-          <!-- COMMENTS -->
-
-          <div>
-            <h2>Add Comment</h2>
-              <%= render 'comments/form' %>
-          </div>
-
-          <div>
-            <h2>Comments</h2>
+            <div>
+                <h2><%= @user.name %>
+                    Review's</h2>
                 <% @user.comments.each do |comment| %>
                 <p>
-                  <%= comment.id %>
-                  <%= comment.teacher_id %>
-                  <%= comment.body %>
+                    <ul>
+                        <li><%= comment.body %></li>
+                        <li><%= comment.teacher.name %></li>
+                    </ul>
                 </p>
                 <%= button_to("Delete", "/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure?"}) %>
-
                 <% end %>
-          </div>
+            </div>
 
+            <div>
+                <%= render 'comments/form' %>
+            </div>
 
+            <!-- Edit and delete profile -->
+            <div class="container controls">
+                <% if @current_user && @current_user.id == @user.id  %>
+                <button type="button" name="action"><%= link_to("Edit profile", "/users/#{@user.id}/edit") %></button>
 
-          <!-- Edit and delete profile -->
-          <div class="container controls">
-            <% if @current_user && @current_user.id == @user.id  %>
-              <button type="button" name="action"><%= link_to("Edit profile", "/users/#{@user.id}/edit") %></button>
-
-            <button type="button" name="action"><%= link_to("Delete profile", "/users/#{@user.id}", method: :delete, data: { confirm: "Are you sure?" }) %></button>
-          <% end %>
-          </div>
+                <button type="button" name="action"><%= link_to("Delete profile", "/users/#{@user.id}", method: :delete, data: { confirm: "Are you sure?" }) %></button>
+                <% end %>
+            </div>
 
         </div>
-      </div>
-  </div>
+    </div>
+</div>
 </div>

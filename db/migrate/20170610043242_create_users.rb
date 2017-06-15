@@ -11,6 +11,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.text :location
       t.text :longitude
       t.text :latitude
+      t.integer :price
       t.text :password_digest
 
       t.timestamps

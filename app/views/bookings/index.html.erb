@@ -8,7 +8,8 @@
     <p>Start time: <%= booking.start_time %></p>
     <p>End time: <%= booking.end_time %></p>
     <p>Tutor: <%= booking.teacher.name%></p>
-    <!-- <p>Student: <#%= booking.student_id%></p> -->
+    <p>Tutor: <%= booking.teacher_id%></p>
+    <p>Student: <%= booking.student_id%></p>
   </p>
 <%# end %>
 <% end %>

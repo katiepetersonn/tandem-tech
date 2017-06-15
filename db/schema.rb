@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20170610050450) do
     t.text     "location"
     t.text     "longitude"
     t.text     "latitude"
+    t.integer  "price"
     t.text     "password_digest"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false

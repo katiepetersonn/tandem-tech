@@ -10,7 +10,8 @@ User.destroy_all
     image: "http://fillmurray.com/200/200",
     location: "Sydney",
     password: "chicken",
-    password_confirmation: "chicken"
+    password_confirmation: "chicken",
+    price: 2000
     })
 
     u2 = User.create({
@@ -23,7 +24,8 @@ User.destroy_all
     image: "http://fillmurray.com/200/200",
     location: "Sydney",
     password: "chicken",
-    password_confirmation: "chicken"
+    password_confirmation: "chicken",
+    price: 2000
     })
 
     u3 = User.create({
@@ -36,7 +38,8 @@ User.destroy_all
     image: "http://fillmurray.com/200/200",
     location: "Sydney",
     password: "chicken",
-    password_confirmation: "chicken"
+    password_confirmation: "chicken",
+    price: 2000
     })
 
     u4 = User.create({
@@ -49,7 +52,8 @@ User.destroy_all
     image: "http://fillmurray.com/200/200",
     location: "Sydney",
     password: "chicken",
-    password_confirmation: "chicken"
+    password_confirmation: "chicken",
+    price: 2000
     })
 
     u5 = User.create({
@@ -62,7 +66,8 @@ User.destroy_all
     image: "http://fillmurray.com/200/200",
     location: "Sydney",
     password: "chicken",
-    password_confirmation: "chicken"
+    password_confirmation: "chicken",
+    price: 2000
     })
 
   puts "User Count: #{User.all.count }"

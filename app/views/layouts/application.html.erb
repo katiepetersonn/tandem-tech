@@ -6,6 +6,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src="path/to/jquery.easy-autocomplete.min.js"></script>
+    <link rel="stylesheet" href="path/to/easy-autocomplete.min.css">
   </head>
 
   <body>
@@ -16,8 +18,6 @@
             <% if @current_user %>
                 <li><a href="/users">Search for a tutor</a></li>
                 <li><a href="/bookings/new">Create a timeslot</a></li>
-                <li><a href="/bookings">My lessons</a></li>
-
                 <li><%= link_to "Log Out", "/logout", method: :delete %></li>
                 <li><a href= "<%= user_path(@current_user) %>">Hi <%= @current_user.name %></a></li>
             <% else %>
