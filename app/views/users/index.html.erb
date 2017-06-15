@@ -1,4 +1,4 @@
-<h1>All Users</h1>
+
 <div>
     <%= form_tag(users_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search for a tutor" %>
@@ -7,20 +7,34 @@
 </div>
 
 <% @all_users.each do |user| %>
-<div>
-    <img src="<%= user.image %>">
-    <div>
-        <ul>
-            <li>Name:<%= user.name %></li>
-            <li>Hourly rate: $ <%= user.price %></li>
-            <li>Location: <%= user.location %></li>
-            <li>Tutor for: <%= user.skills %></li>
-            <li>Bio: <%= user.bio %></li>
-            <li>
-                <a class="a-links" <%= link_to("View Profile", "/users/#{user.id}") %></a>
-            </li>
-        </ul>
-    </div>
+<div class="row item">
+    <div class="col s12 m4">
+        <div class="card horizontal z-depth-3">
+            <div>
+                <img src="<%= user.image %>">
+                <div>
+                    <div class="card-stacked">
+                        <div class="card-content">
+                            <ul>
+                                <li>Name:<%= user.name %></li>
+                                <li>Hourly rate: $
+                                    <%= user.price %></li>
 
+                            </div>
+                            <div class="card-action">
+                                <li>Location:
+                                    <%= user.location %></li>
+                                <li>Tutor for:
+                                    <%= user.skills %></li>
+                                <li>Bio:
+                                    <%= user.bio %></li>
+                                <li><a class="a-links" <%= link_to("View Profile", "/users/#{user.id}") %></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <% end %>

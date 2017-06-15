@@ -1,37 +1,111 @@
 <div class="hero">
-  <div class="center row">
-      <div class="col s12 m4"></div>
-      <div class="box-white col s12 m4">
-        <h2>Start learning a language today</h2>
-      <p>
-        Whether you’re starting a new programming language from scratch, or just need a refresher course, we’ll help you find a professional language tutor. Just find someone who matches your style, and book a lesson.
-      </p>
-          <% if !@current_user %>
-          <button type="submit" name="action"><%= link_to 'Sign Up', new_user_path %></button>
-          <% end %>
+    <div class="center row">
+        <div class="col s12 m4"></div>
+        <div class="col s12 m4 home-banner">
+            <h2>Start learning a language today</h2>
+            <p>
+                Whether you’re starting a new programming language from scratch, or just need a refresher course, we’ll help you find a professional language tutor. Just find someone who matches your style, and book a lesson.
+            </p>
+
+            <% if !@current_user %>
+            <button class="btn waves-effect waves-light z-depth-0 grey lighten-3" type="submit" name="action"><%= link_to 'Sign Up', new_user_path %></button>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<div class="container about center">
+    <div class="row small">
+        <div class="col s12 m4">
+            <div class="card grey lighten-3">
+                <div class="card-content teal-lighten-1-text">
+                    <h3>
+                        <strong>STEP 1</strong>
+                    </h3>
+                    <div class="circle">
+                        <p>
+                            <i class="large material-icons">search</i>
+                        </p>
+                    </div>
+                    <p>Search for a tutor</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card grey lighten-3">
+                <div class="card-content teal-lighten-1-text">
+                    <h3>
+                        <strong>STEP 2</strong>
+                    </h3>
+                    <div class="circle">
+                        <p>
+                            <i class="large material-icons">shopping_cart</i>
+                        </p>
+                    </div>
+                    <p>Book a tutor</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card grey lighten-3">
+                <div class="card-content teal-lighten-1-text">
+                    <h3>
+                        <strong>STEP 3</strong>
+                    </h3>
+                    <div class="circle">
+                        <p>
+                            <i class="large material-icons">today</i>
+                        </p>
+                    </div>
+                    <p>Take your lesson</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12">
+            <div class="card grey lighten-3">
+                <div class="card-content teal-lighten-1-text">
+                    <h3>
+                        <strong>TITLE</strong>
+                    </h3>
+                    <p>Take your lesson</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime aut aliquam eius eum cupiditate debitis sed nesciunt omnis cum non inventore fuga, labore, magni totam eos expedita ratione, amet assumenda?</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime aut aliquam eius eum cupiditate debitis sed nesciunt omnis cum non inventore fuga, labore, magni totam eos expedita ratione, amet assumenda?</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Footer Content</h5>
+        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
       </div>
-      <div class="col s12 m4"></div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
-</div>
-
-
-<div>
-    <div>
-        <h3>
-            <strong>STEP 1</strong>
-        </h3>
-        <p>Find a tutor</p>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2014 Copyright Text
+    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
     </div>
-    <div>
-        <h3>
-            <strong>STEP 2</strong>
-        </h3>
-        <p>Book a lesson</p>
-    </div>
-    <div>
-        <h3>
-            <strong>STEP 3</strong>
-        </h3>
-        <p>Take your lesson</p>
-    </div>
-</div>
+  </div>
+</footer>
+    
