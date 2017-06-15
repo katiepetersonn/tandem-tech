@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require materialize-sprockets
+// require_tree ./jquery.easy-autocomplete
 //= require_tree .
