@@ -7,21 +7,17 @@
 </div>
 
 <% @all_users.each do |user| %>
-<div>
-    <img src="<%= user.image %>">
-    <div>
-        <ul>
-            <li>Name:
-            <a class="a-links" <%= link_to(user.name, "/users/#{user.id}") %></a>
-        </a>
-    </li>
-    <li>Email:<%= user.email %></li>
-    <li>Bio:<%= user.bio %></li>
-    <li>Skills:<%= user.skills %></li>
-    <li>Learning:<%= user.learning %></li>
-    <li>Local Time:<%= user.localtime %></li>
-</ul>
-</div>
-
-</div>
+<div class="row">
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="<%= user.image %>">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"> <%= user.name %> </span>
+          <p>Skills: <%= user.skills %></p>
+          <p>Bio: <%= user.bio %></p>
+        </div>
+      </div>
+    </div>
 <% end %>

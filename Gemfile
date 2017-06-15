@@ -7,7 +7,6 @@ git_source(:github) do |repo_name|
 end
 
 
-
 # gem 'httparty'
 #Use stripe
 gem 'stripe', :source => 'https://code.stripe.com/'
