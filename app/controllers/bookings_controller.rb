@@ -1,6 +1,5 @@
 class BookingsController < ApplicationController
 
-
   def index
     @all_bookings = Booking.all
   end
@@ -17,7 +16,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new( booking_params)
     @booking.teacher_id = @current_user.id
     @booking.save
-    # raise hell
+    #  raise hell
     redirect_to "/bookings/"
   end
 
@@ -28,16 +27,37 @@ class BookingsController < ApplicationController
   def book
     # raise "hell"
     # Find the booking (params[:id])
-    # @booking = Booking.find_by(id: params["id"])
-    # # Update the booking's student_id to be whoever is logged in
-    # @booking.student_id = @current_user.id
-    # # Update the booking's available property to false
-    # @booking.available = false
-    # BookingMailer.confirmation(@booking).deliver_now
+    @booking = Booking.find_by(id: params["id"])
+    # Update the booking's student_id to be whoever is logged in
+    @booking.student_id = @current_user.id
+    # Update the booking's available property to false
+    @booking.available = false
+    @booking.save
+    
+    BookingMailer.confirmation(@booking).deliver_now
 
     # CREATE YOUR PAYMENT HERE
 
-    redirect_to "/bookings"
+        token = params[:stripeToken]
+        # binding.pry
+        charge = Stripe::Charge.create(
+          amount:      @booking.price,
+          currency:    "aud",
+          card:        token,
+          description: params[:stripeEmail]
+        )
+
+        @sale = @booking.sales.create!(
+          email:      params[:stripeEmail],
+          stripe_id:  charge.id
+        )
+
+        # Send email
+        BookingMailer.confirmation(@booking).deliver_now
+        # Show booking success
+        # raise "hell"
+
+    redirect_to "/bookings/"
 
   end
 

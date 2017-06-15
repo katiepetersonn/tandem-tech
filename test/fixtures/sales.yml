@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: MyString
+  guid: MyString
+  booking: one
+  stripe_id: MyString
+
+two:
+  email: MyString
+  guid: MyString
+  booking: two
+  stripe_id: MyString

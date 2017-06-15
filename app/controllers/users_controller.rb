@@ -13,8 +13,9 @@ class UsersController < ApplicationController
     end
 
     def show
-      @all_bookings = Booking.all
       @user = User.find(params[:id])
+      @teacher_bookings = @user.teacher_bookings
+      @student_bookings = @user.student_bookings
       @comment = Comment.new
       @comment.user_id = @current_user.id
       @booking = Booking.find_by(id: params["id"])
@@ -26,6 +27,7 @@ class UsersController < ApplicationController
 
     def create
       @user = User.new( user_params )
+      @user.image = Faker::Avatar.image
       if @user.save
         session[:user_id] = @user.id
         redirect_to user_path( @user )
@@ -40,6 +42,7 @@ class UsersController < ApplicationController
 
     def update
       user = User.find_by(id: params["id"])
+      # Cloudinary here
       user.update( user_params() )
       redirect_to "/users/#{user.id}"
     end
@@ -52,7 +55,7 @@ class UsersController < ApplicationController
 
     private
       def user_params
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, :bio, :skills, :learning)
       end
 
       def check_if_logged_out
