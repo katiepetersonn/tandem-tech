@@ -29,9 +29,7 @@
                 <li>Bio:
                     <%= @user.bio %></li>
 
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, exercitationem saepe iure nam quibusdam distinctio
-                </p>
+
             </ul>
             </div>
         </div>
@@ -111,7 +109,7 @@
         <div class="card grey lighten-3">
             <div class="card-content teal-lighten-1-text">
                 <% if @current_user == @user %>
-                <% if !@teacher_bookings.empty? %>
+                <% if !@student_bookings.empty? %>
                 <h2>Your upcoming lessons</h2>
                 <hr>
                 <% @student_bookings.each do |booking| %>
