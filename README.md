@@ -1,24 +1,44 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Tandem tech: Find tutors to help you learn a language.
 
-Things you may want to cover:
+Technologies:
 
-* Ruby version
+-HTML 5 -CSS 3 -Ruby Rails -jQuery -JavaScript
 
-* System dependencies
+Links: Heroku: https://tandem-tech-app.herokuapp.com/
 
-* Configuration
+Gems:
+Faker
+'stripe'
+'rest-client'
+'faker'
+'httparty'
 
-* Database creation
+APIs:
+Stripe
 
-* Database initialization
+Features: -Comments -Stripe -Bookings -Search by user and skills
 
-* How to run the test suite
+User stories:
 
-* Services (job queues, cache servers, search engines, etc.)
+-As a user I would like to search for tutors who can help me learn a language.
+-As a user I would like to book a tutors who can help me learn a language.
+-As a user I would like to pay a tutors who can help me learn a language.
 
-* Deployment instructions
+Bugs:
 
-* ...
+-stripe not up to date- 'rest-client'
+-bookings
+- Heroku -Heroku in general (migrations)
+
+Where next:
+
+- I would like to fix up the CSS
+- Add a payment page.
+- Delete a payment.
+- Make it responsive. Allow followers.
+
+Thanks:
+
+To Jack and Kane for their incredible guidance, answering ridiculous questions and endless bug fixing.
