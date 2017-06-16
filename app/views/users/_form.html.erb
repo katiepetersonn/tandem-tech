@@ -1,14 +1,14 @@
 <div class="container">
     <%= form_for @user do |f| %>
-        <%= f.text_field :name, required: true, placeholder: 'Name' %>
+    <%= f.text_field :name, required: true, placeholder: 'Name' %>
 
-        <%= f.email_field :email, required: true, placeholder: 'Email' %>
+    <%= f.email_field :email, required: true, placeholder: 'Email' %>
 
-        <%= f.password_field :password, required: true, placeholder: 'Password' %>
+    <%= f.password_field :password, required: true, placeholder: 'Password' %>
 
-        <%= f.password_field :password_confirmation, required: true, placeholder: 'Confirm Password'  %>
+    <%= f.password_field :password_confirmation, required: true, placeholder: 'Confirm Password'  %>
 
-        <%= button_tag "Sign Up"%>
+    <%= button_tag "Sign Up", class:"btn waves-effect waves-light z-depth-0 light-blue darken-4"%>
+
     <% end %>
-
 </div>

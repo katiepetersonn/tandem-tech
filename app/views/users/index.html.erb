@@ -1,42 +1,41 @@
-
-<div>
-    <%= form_tag(users_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search for a tutor" %>
-    <%= submit_tag "Search", :name => nil %>
-    <% end %>
+<div class="center row">
+        <%= form_tag(users_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search for a tutor or a language" %>
+        <%= submit_tag "Search", :name => nil, :class => "btn waves-effect waves-light z-depth-0 light-blue darken-4" %>
+        <% end %>
 </div>
 
 <div class="row item">
 <% @all_users.each do |user| %>
 
-    <div class="col s12 m4">
-        <div class="card horizontal z-depth-3">
+<div class="col s12 m4">
+    <div class="card horizontal z-depth-3">
+        <div>
+            <img src="<%= user.image %>">
             <div>
-                <img src="<%= user.image %>">
-                <div>
-                    <div class="card-stacked">
-                        <div class="card-content">
-                            <ul>
-                                <li>Name:<%= user.name %></li>
-                                <li>Hourly rate: $
-                                    <%= user.price %></li>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <ul>
+                            <li>Name:<%= user.name %></li>
+                            <li>Hourly rate: $
+                                <%= user.price %></li>
 
-                            </div>
-                            <div class="card-action">
-                                <li>Location:
-                                    <%= truncate user.location, length: 20 %></li>
-                                <li>Tutor for:
-                                    <%= user.skills %></li>
-                                <li>Bio:
-                                    <%= truncate user.bio, length: 50 %></li>
-                                <li><a class="a-links" <%= link_to("View Profile", "/users/#{user.id}") %></a>
-                            </li>
-                        </ul>
-                    </div>
+                        </div>
+                        <div class="card-action">
+                            <li>Location:
+                                <%= truncate user.location, length: 20 %></li>
+                            <li>Tutor for:
+                                <%= user.skills %></li>
+                            <li>Bio:
+                                <%= truncate user.bio, length: 50 %></li>
+                            <li><a class="a-links" <%= link_to("View Profile", "/users/#{user.id}") %></a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <% end %>

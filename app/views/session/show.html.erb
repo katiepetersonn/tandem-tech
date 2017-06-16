@@ -1,9 +1,8 @@
 <div class="container about center">
 
     <div class="container row user_page">
-        <strong>
-            <h2><%= @user.name %></h2>
-        </strong>
+        <h2>Hi
+            <%= @user.name %></h2>
         <div class="col s12 m6">
             <%if @user.image %>
             <div class="round">
@@ -12,9 +11,9 @@
             <%end %>
         </div>
 
-        <div class="col s12 m6 user_bio">
-            <div>
-                <ul>
+        <div class="col s12 m6">
+            <div class="card grey lighten-3">
+                <ul class="collection">
                     <li>Name:
                         <%= @user.name %></li>
                     <li>Hourly rate: $
@@ -40,9 +39,9 @@
     <div class="col s12">
         <div class="card grey lighten-3">
             <div class="card-content teal-lighten-1-text">
-                <strong><h2>Book a lesson with
+                <h2>Book a lesson with
                     <%= @user.name %>
-                </h2></strong>
+                </h2>
                 <hr>
 
                 <% @teacher_bookings.each do |booking| %>
@@ -73,7 +72,7 @@
             <div class="card-content teal-lighten-1-text">
                 <% if @current_user == @user %>
                 <% if !@teacher_bookings.empty? %>
-                <strong></stong><h2>Your upcoming teaching appointments</h2></strong>
+                <h2>Your upcoming teaching appointments</h2>
 
                 <hr>
 
@@ -110,7 +109,7 @@
             <div class="card-content teal-lighten-1-text">
                 <% if @current_user == @user %>
                 <% if !@student_bookings.empty? %>
-                <strong><h2>Your upcoming lessons</h2></strong>
+                <h2>Your upcoming lessons</h2>
                 <hr>
                 <% @student_bookings.each do |booking| %>
                 <div>
@@ -144,8 +143,8 @@
     <div class="col s12">
         <div class="card grey lighten-3">
             <div class="card-content teal-lighten-1-text">
-                <strong><h2><%= @user.name %>
-                    Review's</h2></strong>
+                <h2><%= @user.name %>
+                    Review's</h2>
                 <% @user.comments.each do |comment| %>
                 <p>
                     <ul>
@@ -166,9 +165,9 @@
     <!-- Edit and delete profile -->
     <div class="container controls">
         <% if @current_user && @current_user.id == @user.id  %>
-        <button type="button" class="btn waves-effect waves-light z-depth-0 grey lighten-3" name="action"><%= link_to("Edit profile", "/users/#{@user.id}/edit") %></button>
+        <button type="button" name="action"><%= link_to("Edit profile", "/users/#{@user.id}/edit") %></button>
 
-        <button type="button" class="btn waves-effect waves-light z-depth-0 grey lighten-3" name="action"><%= link_to("Delete profile", "/users/#{@user.id}", method: :delete, data: { confirm: "Are you sure?" }) %></button>
+        <button type="button" name="action"><%= link_to("Delete profile", "/users/#{@user.id}", method: :delete, data: { confirm: "Are you sure?" }) %></button>
         <% end %>
     </div>
 

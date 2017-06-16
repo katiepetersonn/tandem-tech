@@ -1,16 +1,27 @@
-<div>
-        <h1>Welcome</h1>
-          <% if flash[:login_error] %>
-            <p>
-              <%= flash[:login_error] %>
-            </p>
-          <% end %>
+<div class="hero">
+    <div class="center row">
+        <div class="col s12 m4"></div>
+        <div class="box-white col s12 m4">
+            <h1>Welcome</h1>
+            <div class="col s12 m4 l0"></div>
+            <div class="col s12 m4 l12">
+                <% if flash[:login_error] %>
+                <p>
+                    <%= flash[:login_error] %>
+                </p>
+                <% end %>
 
-          <%= form_tag '/login' do %>
-            <%= email_field_tag  :email, nil, placeholder: 'Email' %>
+                <%= form_tag '/login' do %>
+                <%= email_field_tag  :email, nil, placeholder: 'Email' %>
 
-            <%= password_field_tag :password, nil, placeholder: 'Password' %>
+                <%= password_field_tag :password, nil, placeholder: 'Password' %>
 
-            <%= button_tag "Log In", :class => "btn waves-effect waves-light z-depth-0" %>
-          <% end %>
+                <%= button_tag "Log In", :class => "btn waves-effect waves-light z-depth-0 light-blue darken-4" %>
+
+                <% end %>
+            </div>
+            <div class="col s12 m4 l0"></div>
+        </div>
+        <div class="col s12 m4"></div>
+    </div>
 </div>

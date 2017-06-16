@@ -1,27 +1,35 @@
-<%= form_for @booking do |f| %>
+<div class="center row">
+        <div class="col s12 m4"></div>
+        <div class="box-white col s12 m4">
 
-<p>
-  <%= f.label :date %>
-  <%= f.date_field :date, min: Date.today, required: true %>
-</p>
+            <%= form_for @booking do |f| %>
 
-<p>
-  <%= f.label :start_time %>
-  <%= f.time_field :start_time, required: true %>
-</p>
+            <p>
+                <%= f.label :date %>
+                <%= f.date_field :date, min: Date.today, required: true %>
+            </p>
 
-<p>
-  <%= f.label :end_time %>
-  <%= f.time_field :end_time, required: true %>
-</p>
+            <p>
+                <%= f.label :start_time %>
+                <%= f.time_field :start_time, required: true %>
+            </p>
 
-<p>
-  <%= f.label :price %>
-  <%= f.text_field :price, min: 50, required: true  %>
-</p>
+            <p>
+                <%= f.label :end_time %>
+                <%= f.time_field :end_time, required: true %>
+            </p>
 
-<%= f.submit %>
-<% end %>
+            <p>
+                <%= f.label :price %>
+                <%= f.text_field :price, min: 5, required: true  %>
+            </p>
+
+            <%= f.submit %>
+            <% end %>
+
+        </div>
+    </div>
+</div>
 
 <!-- t.datetime "start_time"
 t.datetime "end_time"
