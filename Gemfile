@@ -11,6 +11,8 @@ end
 #Use stripe
 gem 'stripe', :source => 'https://code.stripe.com/'
 gem 'rest-client', '~> 2.0.2'
+gem 'faker'
+gem 'httparty'
 # Use cloudinary
 gem 'cloudinary'
 # Use materialize-sass
@@ -56,8 +58,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'httparty'
-  gem 'faker'
+
   # gem 'stripe-ruby-mock'
   # gem 'database_cleaner'
   gem 'pry-rails'
