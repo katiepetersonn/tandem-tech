@@ -6,8 +6,9 @@
     <% end %>
 </div>
 
-<% @all_users.each do |user| %>
 <div class="row item">
+<% @all_users.each do |user| %>
+
     <div class="col s12 m4">
         <div class="card horizontal z-depth-3">
             <div>
@@ -23,11 +24,11 @@
                             </div>
                             <div class="card-action">
                                 <li>Location:
-                                    <%= user.location %></li>
+                                    <%= truncate user.location, length: 20 %></li>
                                 <li>Tutor for:
                                     <%= user.skills %></li>
                                 <li>Bio:
-                                    <%= user.bio %></li>
+                                    <%= truncate user.bio, length: 50 %></li>
                                 <li><a class="a-links" <%= link_to("View Profile", "/users/#{user.id}") %></a>
                             </li>
                         </ul>
@@ -37,4 +38,6 @@
         </div>
     </div>
 </div>
+
 <% end %>
+</div>

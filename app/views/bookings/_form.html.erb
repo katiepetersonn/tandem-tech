@@ -17,7 +17,7 @@
 
 <p>
   <%= f.label :price %>
-  <%= f.text_field :price  %>
+  <%= f.text_field :price, min: 50, required: true  %>
 </p>
 
 <%= f.submit %>

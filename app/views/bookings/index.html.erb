@@ -1,16 +1,25 @@
-<h1>My Lessons</h1>
-
-<% @all_bookings.each do |booking| %>
-<%# if booking.student_id == nil %>
-  <p>
-    <%= link_to(booking.date, "/bookings/#{booking.id}") %>
-    <%= booking.date %>
-    <p>Start time: <%= booking.start_time %></p>
-    <p>End time: <%= booking.end_time %></p>
-    <p>Tutor: <%= booking.teacher.name%></p>
-    <p>Tutor: <%= booking.teacher_id%></p>
-    <p>Student: <%= booking.student_id%></p>
-    <p>Price: <%= booking.price%></p>
-  </p>
-<%# end %>
-<% end %>
+<h2>My Lessons</h2>
+<div class="col s12">
+    <div class="card grey lighten-3">
+        <div class="card-content teal-lighten-1-text">
+            <% @all_bookings.each do |booking| %>
+            <p>
+                <%= link_to(booking.date, "/bookings/#{booking.id}") %>
+                <p>Start time:
+                    <%= booking.start_time %></p>
+                <p>End time:
+                    <%= booking.end_time %></p>
+                <p>Tutor:
+                    <%= booking.teacher.name%></p>
+                <p>Tutor:
+                    <%= booking.teacher_id%></p>
+                <p>Student:
+                    <%= booking.student_id%></p>
+                <p>Price:
+                    <%= booking.student_id%></p>
+            </p>
+            <%# end %>
+            <% end %>
+        </div>
+    </div>
+</div>

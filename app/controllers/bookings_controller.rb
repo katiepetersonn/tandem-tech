@@ -6,6 +6,8 @@ class BookingsController < ApplicationController
 
   def show
     @booking = Booking.find_by(id: params["id"])
+    @teacher_bookings = @user.teacher_bookings
+    @student_bookings = @user.student_bookings
   end
 
   def new
@@ -17,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.teacher_id = @current_user.id
     @booking.save
     #  raise hell
-    redirect_to "/bookings/"
+    redirect_to "/users/#{@current_user.id}"
   end
 
   def edit
@@ -33,7 +35,7 @@ class BookingsController < ApplicationController
     # Update the booking's available property to false
     @booking.available = false
     @booking.save
-    
+
     BookingMailer.confirmation(@booking).deliver_now
 
     # CREATE YOUR PAYMENT HERE
@@ -57,7 +59,7 @@ class BookingsController < ApplicationController
         # Show booking success
         # raise "hell"
 
-    redirect_to "/bookings/"
+    redirect_to "/users/#{@current_user.id}"
 
   end
 

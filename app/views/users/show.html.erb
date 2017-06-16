@@ -1,155 +1,181 @@
-<div>
-    <div>
-        <div>
-            <div>
-                <h1><%= @user.name %></h1>
-                <div>
-                    <%if @user.image %>
-                    <div class="round">
-                        <%= image_tag( @user.image || image.link ) %>
-                    </div>
-                    <%end %>
-                </div>
+<div class="container about center">
 
-                <ul>
-                    <li>Name:
-                        <%= @user.name %></li>
-                    <li>Hourly rate:
-                        <%= @user.price %></li>
-                    <li>Location:
-                        <%= @user.location %></li>
-                    <li>Tutor for:
-                        <%= @user.skills %></li>
-                    <li>Learning:
-                        <%= @user.learning %></li>
-                    <li>Email:
-                        <%= @user.email %></li>
-                    <li>Bio:
-                        <%= @user.bio %></li>
-                </ul>
+    <div class="container row user_page">
+        <h2>Hi
+            <%= @user.name %></h2>
+        <div class="col s12 m6">
+            <%if @user.image %>
+            <div class="round">
+                <%= image_tag( @user.image || image.link ) %>
+            </div>
+            <%end %>
+        </div>
 
-                <!-- BOOKINGS  -->
+        <div class="col s12 m6">
+            <div class="card grey lighten-3">
+            <ul class="collection">
+                <li>Name:
+                    <%= @user.name %></li>
+                <li>Hourly rate:
+                    <%= @user.price %></li>
+                <li>Location:
+                    <%= @user.location %></li>
+                <li>Tutor for:
+                    <%= @user.skills %></li>
+                <li>Learning:
+                    <%= @user.learning %></li>
+                <li>Email:
+                    <%= @user.email %></li>
+                <li>Bio:
+                    <%= @user.bio %></li>
 
-                <div>
-                    <h2>Book a lesson with
-                        <%= @user.name %>
-                    </h2>
-
-                    <% @teacher_bookings.each do |booking| %>
-                    <p>
-                        <!-- <#%= booking.to_json %> -->
-                        <%= booking.date.strftime("%e %b %y") %>
-                        :
-                        <%= booking.start_time.strftime("%I:%M %p") %>
-                        -
-                        <%= booking.end_time.strftime("%I:%M %p") %>
-
-                        <% if booking.available  %>
-                        <%= form_tag "/bookings/#{booking.id}/book" do %>
-                        <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="<%= 'Tandem Tech' %>" data-amount="<%= booking.price %>"></script>
-                        <% end %>
-                    <% else %>
-                        <p>Class full</p>
-                        <% end %>
-                    </p>
-
-                    <% end %>
-
-                </div>
-
-                <!-- UPCOMING BOOKINGS -->
-                <div>
-                    <% if @current_user == @user %>
-                    <% if !@teacher_bookings.empty? %>
-                    <h2>Your upcoming lessons</h2>
-
-                    <% @student_bookings.each do |booking| %>
-                    <div>
-                        <ul>
-                            <li>
-                            <li>Date:
-                                <%= booking.date.strftime("%e %b %y") %></li>
-                            <li>Start time:
-                                <%= booking.start_time.strftime("%I:%M %p") %></li>
-                            <li>End time:
-                                <%= booking.start_time.strftime("%I:%M %p") %></li>
-                            <li>Tutor:
-                                <%= booking.teacher.name %></li>
-                            <% if booking.student_id == " " %>
-                            <li>Student:
-                                <%= booking.student.name %></li>
-                            <% end %>
-                        </ul>
-                        <% end %>
-                    </div>
-                <% else %>
-                    <p>You have no upcoming tutoring.</p>
-                    <% end %>
-                    <% end %>
-
-                </div>
-
-                <div>
-                    <% if @current_user == @user %>
-                    <% if !@teacher_bookings.empty? %>
-                    <h2>Your upcoming teaching appointments</h2>
-
-                    <% @teacher_bookings.each do |booking| %>
-                    <div>
-                        <ul>
-                            <li>
-                            <li>Date:
-                                <%= booking.date.strftime("%e %b %y") %></li>
-                            <li>Start time:
-                                <%= booking.start_time.strftime("%I:%M %p") %></li>
-                            <li>End time:
-                                <%= booking.start_time.strftime("%I:%M %p") %></li>
-                            <li>Tutor:
-                                <%= booking.teacher.name %></li>
-                            <% if booking.student_id == " " %>
-                            <li>Student:
-                                <%= booking.student.name %></li>
-                            <% end %>
-                        </ul>
-                        <% end %>
-                    </div>
-                <% else %>
-                    <p>You have no upcoming tutoring.</p>
-                    <% end %>
-                    <% end %>
-
-                </div>
-
-                <!-- COMMENTS -->
-
-                <div>
-                    <h2><%= @user.name %>
-                        Review's</h2>
-                    <% @user.comments.each do |comment| %>
-                    <p>
-                        <ul>
-                            <li><%= comment.body %></li>
-                            <li><%= comment.teacher.name %></li>
-                        </ul>
-                    </p>
-                    <%= button_to("Delete", "/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure?"}) %>
-                    <% end %>
-                </div>
-
-                <div>
-                    <%= render 'comments/form' %>
-                </div>
-
-                <!-- Edit and delete profile -->
-                <div class="container controls">
-                    <% if @current_user && @current_user.id == @user.id  %>
-                    <button type="button" name="action"><%= link_to("Edit profile", "/users/#{@user.id}/edit") %></button>
-
-                    <button type="button" name="action"><%= link_to("Delete profile", "/users/#{@user.id}", method: :delete, data: { confirm: "Are you sure?" }) %></button>
-                    <% end %>
-                </div>
-
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae, exercitationem saepe iure nam quibusdam distinctio
+                </p>
+            </ul>
             </div>
         </div>
     </div>
+
+    <!-- BOOKINGS  -->
+
+    <div class="col s12">
+        <div class="card grey lighten-3">
+            <div class="card-content teal-lighten-1-text">
+                <h2>Book a lesson with
+                    <%= @user.name %>
+                </h2>
+                <hr>
+
+                <% @teacher_bookings.each do |booking| %>
+                <p>
+                    <!-- <#%= booking.to_json %> -->
+                    <%= booking.date.strftime("%e %b %y") %>
+                    :
+                    <%= booking.start_time.strftime("%I:%M %p") %>
+                    -
+                    <%= booking.end_time.strftime("%I:%M %p") %>
+
+                    <% if booking.available  %>
+                    <%= form_tag "/bookings/#{booking.id}/book" do %>
+                    <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button" data-key="<%= Rails.configuration.stripe[:publishable_key] %>" data-description="<%= 'Tandem Tech' %>" data-amount="<%= booking.price %>"></script>
+                    <% end %>
+                <% else %>
+                    <p>Class full</p>
+                    <% end %>
+                </p>
+
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12">
+        <div class="card grey lighten-3">
+            <div class="card-content teal-lighten-1-text">
+                <% if @current_user == @user %>
+                <% if !@teacher_bookings.empty? %>
+                <h2>Your upcoming teaching appointments</h2>
+
+                <hr>
+
+                <% @teacher_bookings.each do |booking| %>
+                <div>
+                    <ul>
+                        <li>
+                        <li>Date:
+                            <%= booking.date.strftime("%e %b %y") %></li>
+                        <li>Start time:
+                            <%= booking.start_time.strftime("%I:%M %p") %></li>
+                        <li>End time:
+                            <%= booking.start_time.strftime("%I:%M %p") %></li>
+                        <li>Tutor:
+                            <%= booking.teacher.name %></li>
+                        <% if booking.student_id == " " %>
+                        <li>Student:
+                            <%= booking.student.name %></li>
+                        <% end %>
+                    </ul>
+                    <% end %>
+                </div>
+            <% else %>
+                <p>You have no upcoming tutoring.</p>
+                <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <!-- UPCOMING BOOKINGS -->
+    <div class="col s12">
+        <div class="card grey lighten-3">
+            <div class="card-content teal-lighten-1-text">
+                <% if @current_user == @user %>
+                <% if !@teacher_bookings.empty? %>
+                <h2>Your upcoming lessons</h2>
+                <hr>
+                <% @student_bookings.each do |booking| %>
+                <div>
+                    <ul>
+                        <li>
+                        <li>Date:
+                            <%= booking.date.strftime("%e %b %y") %></li>
+                        <li>Start time:
+                            <%= booking.start_time.strftime("%I:%M %p") %></li>
+                        <li>End time:
+                            <%= booking.start_time.strftime("%I:%M %p") %></li>
+                        <li>Tutor:
+                            <%= booking.teacher.name %></li>
+                        <% if booking.student_id == " " %>
+                        <li>Student:
+                            <%= booking.student.name %></li>
+                        <% end %>
+                    </ul>
+                    <% end %>
+                </div>
+            <% else %>
+                <p>You have no upcoming tutoring.</p>
+                <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <!-- COMMENTS -->
+
+    <div class="col s12">
+        <div class="card grey lighten-3">
+            <div class="card-content teal-lighten-1-text">
+        <h2><%= @user.name %>
+            Review's</h2>
+        <% @user.comments.each do |comment| %>
+        <p>
+            <ul>
+                <li><%= comment.body %></li>
+                <li><%= comment.teacher.name %></li>
+            </ul>
+        </p>
+        <%= button_to("Delete", "/comments/#{comment.id}", method: :delete, data: {confirm: "Are you sure?"}) %>
+        <% end %>
+    </div>
+    </div>
+    </div>
+
+    <div>
+        <%= render 'comments/form' %>
+    </div>
+
+    <!-- Edit and delete profile -->
+    <div class="container controls">
+        <% if @current_user && @current_user.id == @user.id  %>
+        <button type="button" name="action"><%= link_to("Edit profile", "/users/#{@user.id}/edit") %></button>
+
+        <button type="button" name="action"><%= link_to("Delete profile", "/users/#{@user.id}", method: :delete, data: { confirm: "Are you sure?" }) %></button>
+        <% end %>
+    </div>
+
+</div>
+</div>
+</div>
+</div>
 </div>
